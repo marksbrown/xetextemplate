@@ -1,0 +1,101 @@
+% rubber: set program xelatex
+\documentclass[12pt,xetex,mathserif,serif]{beamer}
+
+\DeclareMathSizes{12}{16}{14}{10}
+\usepackage{fancybox}
+\usepackage{epsfig} 
+\usepackage[caption=false,font=footnotesize]{subfig}
+\usepackage[utf8]{inputenc}
+\usepackage[UKenglish]{babel}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[final,expansion=true,protrusion=true,spacing=true,kerning=true]{microtype}
+\usepackage{mdframed}% http://ctan.org/pkg/mdframed
+\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+
+\graphicspath{{./images/png/}{./images/pdf/}{./images/eps/}}
+
+%%Beamer theme stuff
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[frame number]
+
+%Set fonts
+\usepackage{mathspec}
+\setallmainfonts(Digits,Latin){Norasi}
+
+\usepackage{caption}
+\captionsetup{font=scriptsize,labelfont=scriptsize}
+
+%%Title page stuff
+\title{Another interesting Presentation \\ On the virtues of a caffeine addiction}
+\author{<AUTHOR>}
+\institute[UCL]{\texttt{<USERNAME>@ucl.ac.uk}}
+\date{\today}
+
+%Colours (can add as either RGB or CMYK) 
+\definecolor{maincolour}{rgb}{0,0.47,0.13} %better for presenting
+%\definecolor{maincolour}{cmyk}{1,0,0.72,0.53} %better for printing
+\setbeamercolor{frametitle}{fg=maincolour}
+\setbeamercolor{title}{fg=maincolour}
+\setbeamercolor{background canvas}{bg=white}
+\begin{document}
+
+%Title page (with background image)
+{\setbeamertemplate{background canvas}{\includegraphics
+	[width=1.001\paperwidth]{uclheader.pdf}}
+\begin{frame}\vspace{8mm}\titlepage\end{frame}}
+
+{\setbeamercolor{background canvas}{bg=maincolour}
+\setbeamercolor{frametitle}{fg=white}
+\begin{frame}{Outline}
+\tableofcontents[current]
+\end{frame}}
+
+%Background section
+{\setbeamercolor{background canvas}{bg=maincolour}
+\setbeamercolor{frametitle}{fg=white}
+\begin{frame}{Background}
+\section{Background}
+\end{frame}}
+
+\begin{frame}{Background}{Positron-Emission Tomography (PET)}
+  \only<1>{\begin{figure}
+  \includegraphics[width=\textwidth]{peannihilation.pdf}
+  \caption{A true event : Anti-parallel gamma ray photons detected in opposing scintillator detectors}
+  \end{figure}}
+
+  \only<2>{Interesting Text!}
+\end{frame}
+
+{\setbeamercolor{background canvas}{bg=maincolour}
+\setbeamercolor{frametitle}{fg=white}
+\begin{frame}{Theory}
+\section{Theory}
+\end{frame}}
+
+\begin{frame}{Theory}{Single Exponential Example} 
+\begin{align*}
+f(t|\Theta,\tau_d)=\begin{cases} \frac{1}{\tau_d}\exp{\frac{-t+\Theta}{\tau_d}} &\qquad\mbox{if } t \geq\Theta \\
+0 &\qquad \mbox{if } t < \Theta \end{cases}
+\end{align*}
+$\tau_d$ - Decay time\\
+$\Theta$ - Conversion time 
+
+\begin{center}$\sigma$ - The time resolution is defined as the standard deviation of $\Theta$\end{center}
+\begin{align*}
+\boxed{\sigma \geq \frac{\tau_d}{\sqrt{\operatorname{N}}}}
+\end{align*}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+    \vspace{2cm}
+    {\Large Thanks for listening!}\\
+     \vspace{2cm}
+    {With thanks to}\\
+	\end{center}
+\end{frame}
+
+
+
+\end{document}
